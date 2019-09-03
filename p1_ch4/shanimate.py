@@ -69,7 +69,7 @@ def plot_sh_on_sphere(ell, m, args):
         sys.stdout.flush()
         ax.clear()
         ax.pcolormesh(lon*180/np.pi,lat*180/np.pi,drm,
-             transform=ccrs.PlateCarree(),cmap='seismic',vmin=-vlim,vmax=vlim,shading='flat')
+             transform=ccrs.PlateCarree(),cmap='seismic',vmin=-vlim if not args.square else 0,vmax=vlim,shading='flat')
         ax.relim()
         ax.autoscale_view()
         

@@ -3,12 +3,18 @@
 """
 Addapted from http://keatonb.github.io/archivers/shanimate (by keatonb).
 
-This script generates spherical harmonic animations as gifs as well as a static plot of the "common"
-view of spherical harmonic (namely, $Re(Y)^2$, colored using the value of $Re(Y)$)
+It requires cartopy and matplotlib (and corresponding dependencies)
+
+This script generates 
+
++ Spherical harmonic animations of harmonic on sphere as gifs as lxmy_ss.gif.
+  Note that you get gifs only if m is not zero and it is not the modulus of the harmonic (otherwise, you get a static png).
++ Static plot of the "common" view of spherical harmonic (namely, $Re(Y)^2$, colored using the value of $Re(Y)$)
+  as lxmy_sp.png.
+  
+You can plot the modulus of the spherical function ($|Y|$) by using "--square".
 """
 
-#import stuff
-from __future__ import division, print_function
 import sys
 import argparse
 import scipy.special as sp
@@ -149,6 +155,7 @@ if __name__ == '__main__':
                         help='plot the square')
     args = parser.parse_args()
     
+    # plot stuffs
     plot_sh_on_sphere(args.ell, args.m, args)
     plot_sh_in_spherical_coos(args.ell, args.m, args)
 

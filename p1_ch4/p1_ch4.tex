@@ -42,18 +42,18 @@
         \draw[-latex,cyan] (0,0) -- (-45:1.2) node[midway,right=.1cm]{$\vec{r}$};
         \draw[-latex,red] (-45:1.35) -- +(20:1.25) node[right]{$\vec{p}$};
         \fill[blue] (-45:1.35) circle (.1cm) node[below]{m};
-        \draw[-latex] (-110:.75) node[left]{$\phi$} arc(-100:-60:1.2);
+        \draw[-latex,orange] (-110:.75) node[left]{$\phi$} arc(-100:-60:1.2);
     \end{tikzpicture}
 \end{center}
 
 \begin{center}
     \begin{tikzpicture}
         \draw[-latex] (0,0) ellipse (1cm and .5cm); 
-        \draw[-latex,magenta] (0,0) -- (0,1.5) node[right]{$J_z>0$};
+        \draw[-latex,magenta] (0,0) -- (0,1.5) node[right]{$m_l>0$};
         \draw[-latex,magenta,thick] (-80:1cm and .5cm) arc (-80:50:1cm and .5cm);
         
 	
-		\draw[-latex,magenta] (3,1) -- +(0,-1.5) node[right]{$J_z<0$};
+		\draw[-latex,magenta] (3,1) -- +(0,-1.5) node[right]{$m_l<0$};
 	    \draw[fill=white, fill opacity=.5] (3,1) ellipse (1cm and .5cm); 
 	    \draw[-latex,magenta,thick] (3,1) +(-110:1cm and .5cm) arc (-110:-230:1cm and .5cm);
     \end{tikzpicture}

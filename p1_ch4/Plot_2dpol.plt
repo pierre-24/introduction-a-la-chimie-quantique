@@ -33,8 +33,13 @@ E(n)=n**2
 set sample 200
 
 do for [j=0:2] {
+set tmargin 1
+set rrange [0:1.6]
+set rtics .5
 set label 1 "m_{l} = ".j at graph 1.25,.5
 plot 1 lc rgb "black", 1+real(P(t,j))**1 lc rgb "blue" lw 2, 1+imag(P(t,j))**1 lc rgb "red" lw 2
 unset label 1
-plot 1 lc rgb "black", 1+real(P(t,j))**2 lc rgb "blue" lw 2, 1+imag(P(t,j))**2 lc rgb "red" lw 2
+set rrange [0:.2]
+set rtics .1
+plot 1 lc rgb "black", real(P(t,j))**2 lc rgb "blue" lw 2, imag(P(t,j))**2 lc rgb "red" lw 2
 }

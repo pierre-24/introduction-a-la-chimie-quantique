@@ -117,16 +117,24 @@ def plot_sh_in_spherical_coos(ell, m, args):
     Y = RS * np.sin(THETA) * np.sin(PHI)
     Z = RS * np.cos(THETA)
     
-    fig = plt.figure(figsize=(1.2*args.size, args.size), tight_layout = {'pad': 0})
+    fig = plt.figure(figsize=(args.size, args.size), tight_layout = {'pad': 0})
     ax = fig.add_subplot(projection='3d')
+    
+    limit = max(X.max(), Y.max(), Z.max())
+    
+    ax.set_xlim([-limit, limit])
+    ax.set_ylim([-limit, limit])
+    ax.set_zlim([-limit, limit])
     ax.axis('off')
+    ax.grid(b=None)
+    ax.relim()
     
     norm = colors.Normalize()
     
     im = ax.plot_surface(X, Y, Z, rstride=1, cstride=1, facecolors=cm.bwr(norm(R)))
     m = cm.ScalarMappable(cmap=cm.bwr)
     m.set_array(R)
-    fig.savefig(outfile, dpi=args.dpi)
+    fig.savefig(outfile, dpi=args.dpi, bbox_inches=0)
 
     print('\nWrote '+outfile)
 

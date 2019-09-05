@@ -77,4 +77,21 @@
     \end{tikzpicture}
 \end{center}
 
+
+\begin{center}
+\begin{tikzpicture}
+    \pgfmathsetmacro\s{sqrt(6)}
+    \draw[-latex] (0,-3) -- (0,3) node[above]{$z/\hbar$};
+    \foreach\i in {-2,...,2} {
+        \pgfmathsetmacro\ag{asin(\i/\s)}
+        \draw[blue,-latex,thick] (0,0) -- (\ag:\s) node[right=.1cm]{\i};
+        \draw[dotted] (\ag:\s) -- (0,\i);
+        \pgfmathsetmacro\ag{sqrt(\s*\s - \i*\i)}
+        \draw[blue,fill=blue, fill opacity=.1] (0,\i) ellipse (\ag cm and .2 cm);
+    }
+    \draw[blue] (.5,1.5) node{$\sqrt{6}$};
+    \draw[thick] (0,0) circle (\s cm);
+\end{tikzpicture}
+\end{center}
+
 \end{document}
